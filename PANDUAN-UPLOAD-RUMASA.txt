@@ -1,0 +1,11 @@
+PANDUAN UPLOAD RUMASA
+
+1. Upload index.html ke root repo GitHub Pages.
+2. Upload app.html ke root repo yang sama.
+3. Jika ada preview image, upload juga file PNG preview.
+4. Website utama: https://www.rumasa.web.id/
+5. Aplikasi: https://www.rumasa.web.id/app.html
+
+Perubahan:
+- Semua alamat website diganti menjadi www.rumasa.web.id.
+- Tombol WhatsApp kanan bawah dinaikkan agar tidak menutup alamat website di footer.
