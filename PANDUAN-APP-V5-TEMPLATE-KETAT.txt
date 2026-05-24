@@ -1,0 +1,26 @@
+PANDUAN APP V5 - TEMPLATE FORM PER JENIS BARANG
+
+File utama:
+- app-v5-jasa-service-home-appliances-strict-template.html
+
+Konsep:
+- Data lama tetap aman.
+- Field lama Firebase tetap dipakai: merk, tipe, pk, lokasi, tasks, customers, invoices.
+- Aplikasi hanya menambah businessType, serviceCategory, appVersion, unitLabel.
+- Jika user lama belum punya businessType, sistem otomatis membaca sebagai Service AC.
+
+Perubahan penting:
+- Saat pilih Service AC, pilihan merk/tipe/kapasitas hanya untuk AC.
+- Saat pilih Mesin Cuci, pilihan merk/jenis/kg hanya untuk mesin cuci.
+- Saat pilih Kulkas, pilihan merk/jenis/liter hanya untuk kulkas.
+- Saat pilih Pompa Air, pilihan merk/jenis/daya hanya untuk pompa.
+- Saat pilih CCTV, pilihan merk/perangkat/channel hanya untuk CCTV.
+- Saat pilih Komputer/Printer, pilihan merk/perangkat/spesifikasi hanya untuk IT.
+- Jika template diganti saat buat nota baru, kartu unit otomatis dibersihkan dan dibuat ulang agar isian tidak tercampur.
+
+Cara test aman:
+1. Jangan hapus index.html lama.
+2. Upload app-v5-jasa-service-home-appliances-strict-template.html ke repo.
+3. Test di:
+   /app-v5-jasa-service-home-appliances-strict-template.html
+4. Setelah aman, baru pertimbangkan rename menjadi index.html.
