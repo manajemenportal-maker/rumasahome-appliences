@@ -1,0 +1,25 @@
+PANDUAN UPDATE FIREBASE BARU
+
+File aplikasi yang sudah memakai Firebase baru:
+- app-v6-jasa-service-home-appliances-firebase-baru.html
+
+File landing page yang diarahkan ke app-v6:
+- landing-jasa-service-home-appliances-firebase-baru.html
+
+Firebase baru:
+- projectId: tuser-ha-c6519
+- authDomain: tuser-ha-c6519.firebaseapp.com
+- appId internal aplikasi: jasa-service-home-appliances-v1
+
+Catatan penting:
+1. Data Tuser AC lama tidak ikut terbaca karena project Firebase sudah berbeda.
+2. LocalStorage juga sudah dipisah dari tuser_profile menjadi jsha_profile.
+3. Jangan ganti index.html lama dulu. Upload app-v6 untuk test.
+4. Setelah test aman, baru rename app-v6 menjadi index.html jika ingin jadi aplikasi utama.
+
+Langkah test:
+1. Upload app-v6-jasa-service-home-appliances-firebase-baru.html ke repo.
+2. Buka: https://domainanda.com/app-v6-jasa-service-home-appliances-firebase-baru.html
+3. Daftar akun baru.
+4. Buat 1 pelanggan dan 1 nota percobaan.
+5. Cek di Firebase tuser-ha-c6519 apakah data masuk.
