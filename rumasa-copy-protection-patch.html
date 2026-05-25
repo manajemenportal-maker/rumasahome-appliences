@@ -1,0 +1,145 @@
+
+<!-- RUMASA COPY PROTECTION PATCH - penghambat copy casual, bukan pengaman absolut -->
+<style id="rumasa-copy-protection-style">
+  body.rumasa-copy-protected, body.rumasa-copy-protected * {
+    -webkit-touch-callout: none;
+  }
+  body.rumasa-copy-protected img,
+  body.rumasa-copy-protected svg,
+  body.rumasa-copy-protected canvas,
+  body.rumasa-copy-protected .no-copy {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: auto;
+  }
+  body.rumasa-copy-protected :not(input):not(textarea):not([contenteditable="true"]):not(select) {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  #rumasaCopyWarning {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%) translateY(120px);
+    z-index: 999999;
+    background: #0f172a;
+    color: #fff;
+    border: 1px solid rgba(249,115,22,.5);
+    box-shadow: 0 18px 45px rgba(15,23,42,.24);
+    border-radius: 18px;
+    padding: 13px 18px;
+    font: 800 12px/1.35 'Plus Jakarta Sans', Arial, sans-serif;
+    letter-spacing: .02em;
+    opacity: 0;
+    transition: .25s ease;
+    max-width: min(92vw, 420px);
+    text-align: center;
+  }
+  #rumasaCopyWarning.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  @media print {
+    #rumasaCopyWarning { display: none !important; }
+  }
+</style>
+<script id="rumasa-copy-protection-script">
+(function(){
+  'use strict';
+  if (window.__RUMASA_COPY_PROTECTION__) return;
+  window.__RUMASA_COPY_PROTECTION__ = true;
+
+  const BRAND = 'RUMASA - Jasa Service Home Appliances';
+  const ALLOWED_TAGS = new Set(['INPUT','TEXTAREA','SELECT']);
+
+  function isEditable(el){
+    return !!(el && (ALLOWED_TAGS.has(el.tagName) || el.isContentEditable));
+  }
+
+  function showCopyWarning(message){
+    let box = document.getElementById('rumasaCopyWarning');
+    if(!box){
+      box = document.createElement('div');
+      box.id = 'rumasaCopyWarning';
+      box.textContent = message || 'Konten aplikasi RUMASA dilindungi.';
+      document.body.appendChild(box);
+    } else {
+      box.textContent = message || 'Konten aplikasi RUMASA dilindungi.';
+    }
+    box.classList.add('show');
+    clearTimeout(window.__rumasaCopyWarningTimer);
+    window.__rumasaCopyWarningTimer = setTimeout(() => box.classList.remove('show'), 2200);
+  }
+
+  function block(e, message){
+    if(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    showCopyWarning(message);
+    return false;
+  }
+
+  function protect(){
+    document.body.classList.add('rumasa-copy-protected');
+
+    document.querySelectorAll('img, svg, canvas').forEach(el => {
+      el.setAttribute('draggable','false');
+      el.addEventListener('dragstart', e => block(e, 'Gambar dan desain RUMASA tidak dapat diseret/disalin.'));
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', protect);
+  window.addEventListener('load', protect);
+
+  document.addEventListener('contextmenu', function(e){
+    if(isEditable(e.target)) return true;
+    return block(e, 'Klik kanan dinonaktifkan untuk melindungi desain RUMASA.');
+  }, true);
+
+  document.addEventListener('copy', function(e){
+    if(isEditable(e.target)) return true;
+    return block(e, 'Copy konten dinonaktifkan untuk melindungi materi RUMASA.');
+  }, true);
+
+  document.addEventListener('cut', function(e){
+    if(isEditable(e.target)) return true;
+    return block(e, 'Cut konten dinonaktifkan.');
+  }, true);
+
+  document.addEventListener('dragstart', function(e){
+    if(isEditable(e.target)) return true;
+    return block(e, 'Drag konten dinonaktifkan.');
+  }, true);
+
+  document.addEventListener('keydown', function(e){
+    const key = (e.key || '').toLowerCase();
+    const targetEditable = isEditable(e.target);
+
+    // Biarkan user mengetik normal di form.
+    if(targetEditable && !((e.ctrlKey || e.metaKey) && ['s','u'].includes(key))) return true;
+
+    // Shortcut umum untuk copy/source/save/devtools.
+    const blocked =
+      key === 'f12' ||
+      ((e.ctrlKey || e.metaKey) && ['s','u','c','x','a'].includes(key)) ||
+      ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j','c','k'].includes(key));
+
+    if(blocked){
+      const msg = key === 's' ? 'Simpan halaman dinonaktifkan.' :
+                  key === 'u' ? 'View source dinonaktifkan.' :
+                  'Akses salin/inspect dibatasi untuk melindungi RUMASA.';
+      return block(e, msg);
+    }
+  }, true);
+
+  // Watermark identitas saat ada yang membuka console.
+  try {
+    console.clear();
+    console.log('%c' + BRAND, 'font-size:18px;font-weight:900;color:#f97316;background:#071833;padding:10px 14px;border-radius:8px;');
+    console.log('%cKonten, desain, dan alur aplikasi dilindungi. Dilarang menyalin tanpa izin pemilik.', 'font-size:12px;color:#0f172a;');
+  } catch(err) {}
+})();
+</script>
