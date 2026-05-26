@@ -451,9 +451,6 @@
         }
 
     </style>
-
-<meta name="robots" content="index,follow,noarchive">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
 </head>
 <body>
 <!-- APP-V2 MULTI SERVICE: struktur data lama tetap aman; field baru hanya ditambahkan sebagai opsional. -->
@@ -488,7 +485,7 @@
              <p class="text-xs text-slate-500 mt-3 leading-relaxed font-medium">Masa aktif langganan Anda telah habis atau ditangguhkan oleh Admin. Silakan lunasi iuran bulanan untuk melanjutkan penggunaan aplikasi.</p>
              <div class="mt-6 bg-slate-50 p-4 rounded-2xl border border-slate-100 text-left">
                 <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 text-center">Mulai Dari</p>
-                <p class="text-xl font-black text-slate-800 text-center mb-1">Rp 4.500 <span class="text-[10px] text-slate-400">/ Bulan</span></p>
+                <p class="text-xl font-black text-slate-800 text-center mb-1">Rp 12.500 <span class="text-[10px] text-slate-400">/ Bulan</span></p>
              </div>
              <button onclick="window.buyViaWA()" class="mt-4 bg-[#25D366] hover:bg-[#20bd5a] text-white w-full py-4 rounded-2xl font-bold uppercase tracking-wider text-xs shadow-lg shadow-[#25D366]/30 transition-all flex items-center justify-center gap-2">
                  <i class="fab fa-whatsapp text-lg"></i> Hubungi Admin
@@ -560,7 +557,7 @@
                 <div id="login-view" class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-500 mb-1 ml-1 uppercase tracking-wide">Alamat Email</label>
-                        <input type="email" id="login-email" placeholder="user@email.com" class="input-native font-bold text-sm">
+                        <input type="email" id="login-email" placeholder="tuser@gmail.com" class="input-native font-bold text-sm">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-500 mb-1 ml-1 uppercase tracking-wide">Password</label>
@@ -605,7 +602,7 @@
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-500 mb-1 ml-1 uppercase tracking-wide">Alamat Email</label>
-                        <input type="email" id="reg-email" placeholder="user@email.com" class="input-native font-bold text-sm">
+                        <input type="email" id="reg-email" placeholder="tuser@gmail.com" class="input-native font-bold text-sm">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-500 mb-1 ml-1 uppercase tracking-wide">Password</label>
@@ -634,7 +631,7 @@
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-500 mb-1 ml-1 uppercase tracking-wide">Email Terdaftar</label>
-                        <input type="email" id="forgot-email" placeholder="user@email.com" class="input-native font-bold text-sm">
+                        <input type="email" id="forgot-email" placeholder="tuser@gmail.com" class="input-native font-bold text-sm">
                     </div>
                     <button onclick="window.resetPassword()" class="w-full bg-amber-500 hover:bg-amber-600 text-white py-4 rounded-2xl font-bold text-sm uppercase tracking-wider shadow-lg shadow-amber-500/20 ripple flex items-center justify-center gap-2 transition-all">
                         <span>Kirim Link Reset</span>
@@ -682,58 +679,26 @@
                 <p class="text-[11px] text-slate-500 mt-2 font-medium px-2 leading-relaxed">Batas tagihan gratis Anda telah habis atau masa aktif akun Anda telah berakhir. Silakan lunasi iuran bulanan untuk akses fitur premium tanpa batas.</p>
             </div>
 
-            <!-- PRICING TIERS -->
-            <div class="space-y-3 mb-5 relative z-10">
-                <div id="tier-1" onclick="window.selectTier('1')" class="cursor-pointer border border-slate-200 rounded-2xl p-4 flex justify-between items-center relative overflow-hidden bg-white shadow-sm transition-all duration-200 opacity-60">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-slate-400"></div>
-                    <div>
-                        <h4 class="font-bold text-sm text-slate-800">Paket 1 User</h4>
-                        <p class="text-[10px] text-slate-500 font-medium">Maksimal 1 Teknisi</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="font-black text-slate-700 text-lg">4,5Rb</span>
-                    </div>
+            <!-- KALKULATOR HARGA UPGRADE -->
+            <div class="space-y-4 mb-5 relative z-10">
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-500 mb-2 uppercase tracking-wide">Jenis Pembayaran</label>
+                    <select id="upgrade-plan" onchange="window.updateUpgradePrice()" class="input-native text-sm font-bold">
+                        <option value="monthly">Bulanan</option>
+                        <option value="lifetime">Sekali Beli</option>
+                    </select>
                 </div>
-                
-                <div id="tier-5" onclick="window.selectTier('5')" class="cursor-pointer border-2 border-indigo-500 rounded-2xl p-4 flex justify-between items-center relative overflow-hidden bg-indigo-50/50 shadow-md transition-all duration-200 ring-4 ring-indigo-400 scale-[1.02]">
-                    <div class="absolute top-0 right-0 bg-indigo-500 text-white text-[8px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider">POPULER</div>
-                    <div class="absolute top-0 left-0 w-1 h-full bg-indigo-500"></div>
-                    <div>
-                        <h4 class="font-bold text-sm text-indigo-900">Paket 5 User</h4>
-                        <p class="text-[10px] text-indigo-600 font-medium">Maksimal 5 Teknisi</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="font-black text-indigo-700 text-lg">20Rb</span>
-                    </div>
-                </div>
-                
-                <div id="tier-50" onclick="window.selectTier('50')" class="cursor-pointer border border-amber-200 rounded-2xl p-4 flex justify-between items-center relative overflow-hidden bg-gradient-to-r from-amber-50 to-orange-50 shadow-sm transition-all duration-200 opacity-60">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
-                    <div>
-                        <h4 class="font-bold text-sm text-amber-900">Paket 50 User</h4>
-                        <p class="text-[10px] text-amber-700 font-medium">Maksimal 50 Teknisi</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="font-black text-amber-600 text-lg">50Rb</span>
-                    </div>
-                </div>
-
-                <div id="tier-500" onclick="window.selectTier('500')" class="cursor-pointer border border-emerald-200 rounded-2xl p-4 flex justify-between items-center relative overflow-hidden bg-gradient-to-r from-emerald-50 to-teal-50 shadow-sm transition-all duration-200 opacity-60">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div>
-                    <div>
-                        <h4 class="font-bold text-sm text-emerald-900">Paket 500 User</h4>
-                        <p class="text-[10px] text-emerald-700 font-medium">Maksimal 500 Teknisi</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="font-black text-emerald-600 text-lg">150Rb</span>
-                    </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-500 mb-2 uppercase tracking-wide">Jumlah Teknisi yang Menggunakan Akun</label>
+                    <input type="number" id="upgrade-tech-count" min="1" value="1" oninput="window.updateUpgradePrice()" class="input-native text-center font-black text-lg" placeholder="Contoh: 3">
                 </div>
             </div>
 
             <!-- HARGA DISPLAY -->
             <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-4 mb-5 text-center">
-                <p class="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-1">Iuran Bulanan</p>
-                <h3 class="text-3xl font-black text-indigo-700" id="selected-price-display">Rp 20.000<span class="text-sm font-bold text-indigo-400">/bln</span></h3>
+                <p class="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-1" id="selected-price-label">Total Paket</p>
+                <h3 class="text-3xl font-black text-indigo-700" id="selected-price-display">Rp 12.500<span class="text-sm font-bold text-indigo-400">/bln</span></h3>
+                <p class="text-[10px] text-slate-500 font-bold mt-2" id="selected-price-note">Untuk 1 teknisi, pembayaran bulanan.</p>
             </div>
 
             <!-- INFO REKENING -->
@@ -817,7 +782,7 @@
         </div>
     </div>
 
-    <!-- ADMIN PANEL - KHUSUS PENGELOLAAN TEKNISI (Z-300) -->
+    <!-- ADMIN PANEL - KHUSUS PENGELOLAAN TUSER (Z-300) -->
     <div id="admin-overlay" class="overlay-screen z-[300] hidden flex-col px-4">
         <div class="bg-slate-50 w-full max-w-md rounded-3xl p-5 page-enter shadow-2xl relative overflow-y-auto no-scrollbar max-h-[95vh] border border-slate-200">
             <div class="flex justify-between items-center mb-5 pb-4 border-b border-slate-200">
@@ -851,13 +816,16 @@
                     <input type="number" id="new-license-nik" placeholder="Masukkan 16 Digit NIK" class="input-native text-sm font-bold tracking-widest">
                 </div>
                 <div class="space-y-2 mt-2">
-                    <label class="block text-xs font-bold text-slate-500 ml-1 uppercase tracking-wide">Pilih Paket Lisensi</label>
-                    <select id="new-license-tier" class="input-native text-sm font-bold">
-                        <option value="1">Paket 1 Teknisi (Rp 4.500/bln)</option>
-                        <option value="5">Paket 5 Teknisi (Rp 20.000/bln)</option>
-                        <option value="50">Paket 50 Teknisi (Rp 50.000/bln)</option>
-                        <option value="500">Paket 500 Teknisi (Rp 150.000/bln)</option>
+                    <label class="block text-xs font-bold text-slate-500 ml-1 uppercase tracking-wide">Jenis Pembayaran Lisensi</label>
+                    <select id="new-license-plan" onchange="window.updateAdminLicenseEstimate && window.updateAdminLicenseEstimate()" class="input-native text-sm font-bold">
+                        <option value="monthly">Bulanan</option>
+                        <option value="lifetime">Sekali Beli</option>
                     </select>
+                </div>
+                <div class="space-y-2 mt-2">
+                    <label class="block text-xs font-bold text-slate-500 ml-1 uppercase tracking-wide">Jumlah Teknisi</label>
+                    <input type="number" id="new-license-users" min="1" value="1" oninput="window.updateAdminLicenseEstimate && window.updateAdminLicenseEstimate()" class="input-native text-sm font-bold text-center">
+                    <p id="new-license-estimate" class="text-[10px] text-indigo-600 font-black text-center mt-1">Estimasi: Rp 12.500/bln</p>
                 </div>
                 <button onclick="window.generateLicense()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-bold uppercase tracking-wider text-sm shadow-lg shadow-emerald-600/30 ripple mt-2">Cetak & Simpan Kode</button>
 
@@ -1935,41 +1903,64 @@
             window.showToast("Desain struk diubah ke Tipe " + tpl, "success");
         };
 
-        let selectedUpgradeTier = '5'; 
+        let selectedUpgradePlan = 'monthly';
+        let selectedUpgradeTechnicians = 1;
+        let selectedUpgradePrice = 12500;
+        let selectedUpgradeOk = true;
 
-        window.selectTier = (tier) => {
-            selectedUpgradeTier = tier;
-            const tiers = ['1', '5', '50', '500'];
-            tiers.forEach(t => {
-                const el = document.getElementById('tier-' + t);
-                if(t === tier) {
-                    el.classList.add('ring-4', 'ring-indigo-400', 'scale-[1.02]');
-                    el.classList.remove('opacity-60');
-                } else {
-                    el.classList.remove('ring-4', 'ring-indigo-400', 'scale-[1.02]');
-                    el.classList.add('opacity-60');
-                }
-            });
-            
-            const displayPrice = document.getElementById('selected-price-display');
-            if (displayPrice) {
-                if (tier === '1') displayPrice.innerHTML = 'Rp 4.500<span class="text-sm font-bold text-indigo-400">/bln</span>';
-                if (tier === '5') displayPrice.innerHTML = 'Rp 20.000<span class="text-sm font-bold text-indigo-400">/bln</span>';
-                if (tier === '50') displayPrice.innerHTML = 'Rp 50.000<span class="text-sm font-bold text-indigo-400">/bln</span>';
-                if (tier === '500') displayPrice.innerHTML = 'Rp 150.000<span class="text-sm font-bold text-indigo-400">/bln</span>';
-            }
+        const formatRumasaPrice = (num) => {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(num);
         };
 
-        window.buyViaWA = () => {
-            let paketText = "";
-            if(selectedUpgradeTier === '1') paketText = "Paket 1 Teknisi (Rp 4.500/bulan)";
-            if(selectedUpgradeTier === '5') paketText = "Paket 5 Teknisi (Rp 20.000/bulan)";
-            if(selectedUpgradeTier === '50') paketText = "Paket 50 Teknisi (Rp 50.000/bulan)";
-            if(selectedUpgradeTier === '500') paketText = "Paket 500 Teknisi (Rp 150.000/bulan)";
+        window.calculateRumasaPlanPrice = (plan, qty) => {
+            qty = Math.max(1, parseInt(qty || '1', 10));
+            if (plan === 'lifetime') {
+                if (qty === 1) return { ok: true, price: 35000, suffix: '', note: `Untuk ${qty} teknisi, sekali beli.` };
+                if (qty >= 2 && qty <= 10) return { ok: true, price: 75000, suffix: '', note: `Untuk ${qty} teknisi, sekali beli.` };
+                if (qty > 10 && qty <= 100) return { ok: true, price: 125000, suffix: '', note: `Untuk ${qty} teknisi, sekali beli.` };
+                return { ok: false, price: 0, suffix: '', note: 'Sekali beli hanya sampai 100 teknisi. Untuk lebih dari 100 teknisi, gunakan paket bulanan.' };
+            }
+            let price = 12500;
+            if (qty === 1) price = 12500;
+            else if (qty >= 2 && qty <= 5) price = qty * 7500;
+            else if (qty > 5 && qty <= 25) price = qty * 5000;
+            else price = qty * 4500;
+            return { ok: true, price, suffix: '/bln', note: `Untuk ${qty} teknisi, pembayaran bulanan.` };
+        };
 
+        window.updateUpgradePrice = () => {
+            const planEl = document.getElementById('upgrade-plan');
+            const qtyEl = document.getElementById('upgrade-tech-count');
+            const displayPrice = document.getElementById('selected-price-display');
+            const labelEl = document.getElementById('selected-price-label');
+            const noteEl = document.getElementById('selected-price-note');
+            selectedUpgradePlan = planEl ? planEl.value : 'monthly';
+            selectedUpgradeTechnicians = Math.max(1, parseInt(qtyEl ? qtyEl.value : '1', 10) || 1);
+            const result = window.calculateRumasaPlanPrice(selectedUpgradePlan, selectedUpgradeTechnicians);
+            selectedUpgradePrice = result.price;
+            selectedUpgradeOk = result.ok;
+            if (labelEl) labelEl.innerText = selectedUpgradePlan === 'monthly' ? 'Total Sewa Bulanan' : 'Total Sekali Beli';
+            if (displayPrice) {
+                displayPrice.innerHTML = result.ok ? `${formatRumasaPrice(result.price)}<span class="text-sm font-bold text-indigo-400">${result.suffix}</span>` : 'Hubungi Admin';
+            }
+            if (noteEl) noteEl.innerText = result.note;
+        };
+
+        window.selectTier = () => { window.updateUpgradePrice(); };
+
+        window.buyViaWA = () => {
+            window.updateUpgradePrice();
+            if (!selectedUpgradeOk) {
+                window.showToast('Untuk lebih dari 100 teknisi, pilih paket bulanan.', 'error');
+                const planEl = document.getElementById('upgrade-plan');
+                if (planEl) planEl.value = 'monthly';
+                window.updateUpgradePrice();
+            }
+            const planText = selectedUpgradePlan === 'monthly' ? 'Bulanan' : 'Sekali Beli';
+            const hargaText = selectedUpgradeOk ? `${formatRumasaPrice(selectedUpgradePrice)}${selectedUpgradePlan === 'monthly' ? '/bulan' : ''}` : 'Hubungi Admin';
             let namaTeknisi = appState.profile ? appState.profile.name : "Pengguna";
             let emailTeknisi = appState.profile ? appState.profile.email : "";
-            const text = `Halo Admin, saya ingin konfirmasi pembayaran Iuran Bulanan untuk Aplikasi Jasa Service Home Appliances *${paketText}* atas nama *${namaTeknisi}* (${emailTeknisi}). Berikut bukti transfernya.`;
+            const text = `Halo Admin, saya ingin konfirmasi paket Rumasa ${planText} untuk ${selectedUpgradeTechnicians} teknisi. Total harga: ${hargaText}. Atas nama *${namaTeknisi}* (${emailTeknisi}). Berikut bukti transfernya.`;
             const waUrl = `https://wa.me/6285111033789?text=${encodeURIComponent(text)}`;
             window.open(waUrl, '_blank');
         };
@@ -1988,7 +1979,7 @@
             document.getElementById('upgrade-modal').classList.remove('hidden');
             document.getElementById('upgrade-modal').classList.add('flex');
             document.getElementById('upgrade-key').value = '';
-            window.selectTier('5'); 
+            window.updateUpgradePrice(); 
         };
 
         window.processUpgrade = async () => {
@@ -3143,17 +3134,26 @@
             window.switchAuthTab('user');
         };
 
+        window.updateAdminLicenseEstimate = () => {
+            const planEl = document.getElementById('new-license-plan');
+            const qtyEl = document.getElementById('new-license-users');
+            const out = document.getElementById('new-license-estimate');
+            if(!out) return;
+            const plan = planEl ? planEl.value : 'monthly';
+            const qty = qtyEl ? qtyEl.value : 1;
+            const result = window.calculateRumasaPlanPrice ? window.calculateRumasaPlanPrice(plan, qty) : {ok:true, price:0, suffix:'/bln', note:''};
+            out.innerText = result.ok ? `Estimasi: ${formatRumasaPrice(result.price)}${result.suffix || ''}` : 'Sekali beli maksimal 100 teknisi. Pilih bulanan.';
+        };
+
         window.generateLicense = async () => {
             const nik = document.getElementById('new-license-nik').value.trim();
-            const tierVal = document.getElementById('new-license-tier').value;
+            const planVal = document.getElementById('new-license-plan') ? document.getElementById('new-license-plan').value : 'monthly';
+            const qtyInput = document.getElementById('new-license-users') ? document.getElementById('new-license-users').value : '1';
+            const maxUsersLimit = Math.max(1, parseInt(qtyInput, 10) || 1);
+            const priceData = window.calculateRumasaPlanPrice ? window.calculateRumasaPlanPrice(planVal, maxUsersLimit) : {ok:true, price:0};
             
             if(!nik || nik.length < 16) return window.showToast("Masukkan NIK Pemesan (Minimal 16 Digit)!", "error");
-
-            let maxUsersLimit = 1;
-            if(tierVal === '1') maxUsersLimit = 1;
-            if(tierVal === '5') maxUsersLimit = 5;
-            if(tierVal === '50') maxUsersLimit = 50;
-            if(tierVal === '500') maxUsersLimit = 500; 
+            if(!priceData.ok) return window.showToast("Sekali beli hanya sampai 100 teknisi. Pilih bulanan untuk jumlah lebih besar.", "error");
 
             const rnd = () => Math.random().toString(36).substring(2, 6).toUpperCase(); 
             const key = `KSA-${rnd()}-${rnd()}`; 
@@ -3163,14 +3163,15 @@
             try {
                 await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'license_keys', key), { 
                     nik: nik, 
-                    tier: tierVal,
+                    tier: String(maxUsersLimit),
+                    planType: planVal,
+                    totalPrice: priceData.price,
                     maxUsers: maxUsersLimit,
                     usedBy: [], 
                     createdAt: serverTimestamp(), 
                     status: 'active'
                 });
                 window.showToast(`Lisensi tercetak & tersimpan!`, "success");
-                
                 window.loadAdminLicenses();
             } catch(error) { 
                 window.showToast("Gagal menyimpan lisensi ke database", "error"); 
@@ -3232,7 +3233,7 @@
                     <div class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-sm flex flex-col gap-1 relative transition-colors hover:bg-slate-50">
                         <div class="flex justify-between items-start">
                             <span class="text-[11px] font-bold text-indigo-700 font-mono tracking-wider">${lic.id}</span>
-                            <span class="text-[8px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-bold uppercase">Paket ${lic.tier || '-'} User</span>
+                            <span class="text-[8px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-bold uppercase">${lic.planType === 'lifetime' ? 'Sekali Beli' : 'Bulanan'} · ${lic.maxUsers || lic.tier || '-'} Teknisi</span>
                         </div>
                         <div class="text-[10px] text-slate-600 flex justify-between items-center mt-1">
                             <span class="font-bold truncate mr-2"><i class="fas fa-id-card text-slate-300 mr-1"></i> ${lic.nik || 'Tanpa NIK'}</span>
@@ -3495,151 +3496,5 @@
             }, 3500);
         }
     </script>
-
-<!-- RUMASA COPY PROTECTION PATCH - penghambat copy casual, bukan pengaman absolut -->
-<style id="rumasa-copy-protection-style">
-  body.rumasa-copy-protected, body.rumasa-copy-protected * {
-    -webkit-touch-callout: none;
-  }
-  body.rumasa-copy-protected img,
-  body.rumasa-copy-protected svg,
-  body.rumasa-copy-protected canvas,
-  body.rumasa-copy-protected .no-copy {
-    -webkit-user-drag: none;
-    user-drag: none;
-    pointer-events: auto;
-  }
-  body.rumasa-copy-protected :not(input):not(textarea):not([contenteditable="true"]):not(select) {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  #rumasaCopyWarning {
-    position: fixed;
-    left: 50%;
-    bottom: 22px;
-    transform: translateX(-50%) translateY(120px);
-    z-index: 999999;
-    background: #0f172a;
-    color: #fff;
-    border: 1px solid rgba(249,115,22,.5);
-    box-shadow: 0 18px 45px rgba(15,23,42,.24);
-    border-radius: 18px;
-    padding: 13px 18px;
-    font: 800 12px/1.35 'Plus Jakarta Sans', Arial, sans-serif;
-    letter-spacing: .02em;
-    opacity: 0;
-    transition: .25s ease;
-    max-width: min(92vw, 420px);
-    text-align: center;
-  }
-  #rumasaCopyWarning.show {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
-  @media print {
-    #rumasaCopyWarning { display: none !important; }
-  }
-</style>
-<script id="rumasa-copy-protection-script">
-(function(){
-  'use strict';
-  if (window.__RUMASA_COPY_PROTECTION__) return;
-  window.__RUMASA_COPY_PROTECTION__ = true;
-
-  const BRAND = 'RUMASA - Jasa Service Home Appliances';
-  const ALLOWED_TAGS = new Set(['INPUT','TEXTAREA','SELECT']);
-
-  function isEditable(el){
-    return !!(el && (ALLOWED_TAGS.has(el.tagName) || el.isContentEditable));
-  }
-
-  function showCopyWarning(message){
-    let box = document.getElementById('rumasaCopyWarning');
-    if(!box){
-      box = document.createElement('div');
-      box.id = 'rumasaCopyWarning';
-      box.textContent = message || 'Konten aplikasi RUMASA dilindungi.';
-      document.body.appendChild(box);
-    } else {
-      box.textContent = message || 'Konten aplikasi RUMASA dilindungi.';
-    }
-    box.classList.add('show');
-    clearTimeout(window.__rumasaCopyWarningTimer);
-    window.__rumasaCopyWarningTimer = setTimeout(() => box.classList.remove('show'), 2200);
-  }
-
-  function block(e, message){
-    if(e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    showCopyWarning(message);
-    return false;
-  }
-
-  function protect(){
-    document.body.classList.add('rumasa-copy-protected');
-
-    document.querySelectorAll('img, svg, canvas').forEach(el => {
-      el.setAttribute('draggable','false');
-      el.addEventListener('dragstart', e => block(e, 'Gambar dan desain RUMASA tidak dapat diseret/disalin.'));
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', protect);
-  window.addEventListener('load', protect);
-
-  document.addEventListener('contextmenu', function(e){
-    if(isEditable(e.target)) return true;
-    return block(e, 'Klik kanan dinonaktifkan untuk melindungi desain RUMASA.');
-  }, true);
-
-  document.addEventListener('copy', function(e){
-    if(isEditable(e.target)) return true;
-    return block(e, 'Copy konten dinonaktifkan untuk melindungi materi RUMASA.');
-  }, true);
-
-  document.addEventListener('cut', function(e){
-    if(isEditable(e.target)) return true;
-    return block(e, 'Cut konten dinonaktifkan.');
-  }, true);
-
-  document.addEventListener('dragstart', function(e){
-    if(isEditable(e.target)) return true;
-    return block(e, 'Drag konten dinonaktifkan.');
-  }, true);
-
-  document.addEventListener('keydown', function(e){
-    const key = (e.key || '').toLowerCase();
-    const targetEditable = isEditable(e.target);
-
-    // Biarkan user mengetik normal di form.
-    if(targetEditable && !((e.ctrlKey || e.metaKey) && ['s','u'].includes(key))) return true;
-
-    // Shortcut umum untuk copy/source/save/devtools.
-    const blocked =
-      key === 'f12' ||
-      ((e.ctrlKey || e.metaKey) && ['s','u','c','x','a'].includes(key)) ||
-      ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j','c','k'].includes(key));
-
-    if(blocked){
-      const msg = key === 's' ? 'Simpan halaman dinonaktifkan.' :
-                  key === 'u' ? 'View source dinonaktifkan.' :
-                  'Akses salin/inspect dibatasi untuk melindungi RUMASA.';
-      return block(e, msg);
-    }
-  }, true);
-
-  // Watermark identitas saat ada yang membuka console.
-  try {
-    console.clear();
-    console.log('%c' + BRAND, 'font-size:18px;font-weight:900;color:#f97316;background:#071833;padding:10px 14px;border-radius:8px;');
-    console.log('%cKonten, desain, dan alur aplikasi dilindungi. Dilarang menyalin tanpa izin pemilik.', 'font-size:12px;color:#0f172a;');
-  } catch(err) {}
-})();
-</script>
-
 </body>
 </html>
